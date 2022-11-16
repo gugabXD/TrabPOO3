@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.BufferedWriter;
 
 public class Registros {
-    private ArrayList<Matricula> matriculas, ultimaConsulta;
+    private ArrayList<Matricula> matriculas, ultimaConsulta; //a
     private Comparador comparador;
     public Registros(){
         matriculas = new ArrayList<>();
@@ -66,6 +66,7 @@ public class Registros {
                     throw new RuntimeException(e);
                 }
             });
+            escritor.close();
             return true;
             }catch (IOException e) {
             throw new RuntimeException(e);
@@ -74,20 +75,6 @@ public class Registros {
         }
         return false;
     }
-   /* public boolean salvaArquivo(String arq) {
-        try{
-            BufferedWriter escritor = new BufferedWriter(new FileWriter(arq+".CSV"));
-            for(Matricula m: ultimaConsulta){
-                escritor.write(m.versaoArquivo());
-            }
-            return true;
-        }catch (IOException e) {
-            throw new RuntimeException(e);
-        }catch(Exception e){
-            System.out.println("Erro.");
-        }
-        return false;
-    }*/
 
     public void printUltimaConsulta(){
         for(Matricula m: ultimaConsulta){
